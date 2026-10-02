@@ -1,8 +1,8 @@
 {
-  "name": "deskcomm-crm",
+  "name": "negocai",
   "version": "0.1.0",
   "private": true,
-  "description": "DeskcommCRM — sistema operacional de vendas open source com agentes de IA nativos e WhatsApp (WAHA). Self-hosted, multi-tenant, LGPD by-design.",
+  "description": "Negocai - CRM com IA para WhatsApp.",
   "engines": {
     "node": ">=22"
   },
