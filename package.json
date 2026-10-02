@@ -139,16 +139,19 @@
   "packageManager": "pnpm@9.15.9",
   "//jsdom": "Fixado em 30.0.1 de propósito (sem ^). O jsdom 30.1 guarda a implementação do Blob num campo privado (#impl), e o ambiente jsdom do vitest (makeCompatBlob) lê o Blob pela 1ª símbolo da instância: com 30.1.x, URL.createObjectURL(file) e FormData/Request com File lançam `Cannot read properties of undefined (reading '_buffer')` — 4 casos da suíte (composer-attach x2, composer-colar-imagem, upload-templates-media-security). Upstream: vitest-dev/vitest#11336, aberta e sem conserto em nenhuma release (5.0.2 ainda quebra). Tire o pin quando o vitest instalado trouxer o conserto; o sinal é esses 4 casos verdes com jsdom 30.1+. Rastreio: melgarafael/DeskcommCRM#1745.",
   "pnpm": {
+    "//pins-do-rebrand": "Rebrand Negocai: brace-expansion (1.x e 5.x) e undici (8.x) pinados EXATAMENTE no alvo do rebrand. `pnpm update <pkg>@<ver>` moveu os três para ALÉM do alvo (1.1.21 / 5.0.12 / 8.11.2) e reescreveu o lock inteiro; pin exato é o que mantém o diff no alvo nomeado.",
     "//overrides": "Pisos de versão para dependência TRANSITIVA com advisory. Não é atalho: `pnpm update <pkg>` só casa o padrão contra o package.json (hono/js-yaml/nanoid não estão lá, e não se movem), e `pnpm update` sem alvo reescreve 29 ranges diretas e arrasta 139 pacotes. Override é a única ferramenta que move transitiva sem arrastar o mundo. Os seletores com `@<major>` são LOAD-BEARING: o lock tem duas árvores de brace-expansion (1.x e 5.x) e duas de path-to-regexp (6.x e 8.x); sem o escopo, o override rebaixa a árvore nova para a antiga — em silêncio, com `pnpm audit` ainda verde.",
     "overrides": {
       "postcss": "^8.5.28",
       "sharp": "^0.35.0",
       "hono": "^4.13.5",
       "js-yaml": "^4.3.2",
-      "brace-expansion@1": "^1.1.18",
+      "brace-expansion@1": "1.1.20",
+      "brace-expansion@5": "5.0.11",
       "path-to-regexp@6": "^6.3.0",
       "fast-uri": "^3.1.7",
       "qs": "^6.16.0",
+      "undici@8": "8.10.2",
       "browserslist": "^4.28.8"
     },
     "patchedDependencies": {
